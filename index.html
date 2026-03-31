@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zuhri Abdussalam Ashari — Portofolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       Root / Variables
+       ========================= */
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #98A0B3;
+      --accent: linear-gradient(90deg,#6EE7B7,#60A5FA);
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --glass-border: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --max-width: 1100px;
+    }
+
+    /* =========================
+       Global
+       ========================= */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent),
+                  radial-gradient(900px 500px at 90% 90%, rgba(110,231,183,0.04), transparent),
+                  var(--bg);
+      color:#E6EEF8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:32px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    /* =========================
+       Header / Nav
+       ========================= */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .logo{
+      width:44px;height:44px;border-radius:10px;
+      background:linear-gradient(135deg,#60A5FA,#6EE7B7);
+      display:grid;place-items:center;font-weight:700;color:#05233B;
+      box-shadow:0 6px 20px rgba(2,6,23,0.6);
+      flex-shrink:0;
+    }
+
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:18px;
+      font-weight:600;
+      transition:color .25s, transform .18s;
+    }
+    nav a:hover{ color:#fff; transform:translateY(-2px); }
+
+    /* =========================
+       HERO
+       ========================= */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:48px;
+    }
+
+    .hero-left{
+      padding:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:var(--radius);
+      border:1px solid var(--glass-border);
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      overflow:hidden;
+    }
+
+    .intro-meta{
+      color:var(--muted);
+      font-weight:600;
+      letter-spacing:1px;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+
+    .name{
+      font-family:"Space Grotesk", "Inter", sans-serif;
+      font-weight:700;
+      font-size:40px;
+      line-height:1;
+      letter-spacing: -1px;
+      margin:0 0 8px 0;
+      background: linear-gradient(90deg,#fff,#BFE9FF);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      min-height:56px;
+    }
+
+    /* typing caret */
+    .typewriter{
+      display:inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+      border-right:2px solid rgba(255,255,255,0.8);
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink{50%{border-color:transparent}}
+
+    .subtitle{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .cta-row{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient(90deg,#1E293B,rgba(255,255,255,0.02));
+      color:#fff;padding:10px 14px;border-radius:10px;border:1px solid var(--glass-border);
+      text-decoration:none;font-weight:700;font-size:14px;cursor:pointer;
+      transition:transform .2s, box-shadow .2s;
+      box-shadow:0 6px 18px rgba(2,6,23,0.45);
+    }
+    .btn:hover{ transform:translateY(-4px); box-shadow:0 18px 30px rgba(2,6,23,0.6); }
+    .btn--accent{
+      background:var(--accent);
+      color:#05233B;
+      border:none;
+    }
+
+    /* hero-right profile */
+    .profile-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:18px;padding:18px;border:1px solid var(--glass-border);
+      display:flex;flex-direction:column;gap:14px;align-items:center;
+      transition:transform .28s, box-shadow .28s;
+    }
+    .profile-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(2,6,23,0.6); }
+
+    .avatar{
+      width:160px;height:160px;border-radius:50%;
+      overflow:hidden;border:6px solid rgba(255,255,255,0.04);
+      display:grid;place-items:center;background:linear-gradient(135deg,#0B1220,#09121b);
+      transition:transform .4s;
+    }
+    .avatar img{ width:100%;height:100%;object-fit:cover;display:block }
+    .avatar:hover{ transform:scale(1.04) rotate(-1.2deg); }
+
+    .profile-name{ font-weight:700; letter-spacing:0.6px; color:#fff }
+    .profile-role{ color:var(--muted); font-weight:600; font-size:13px }
+
+    /* =========================
+       Sections (About, Schedule, Contact)
+       ========================= */
+    section{
+      margin-bottom:28px;
+      padding:22px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+      border:1px solid var(--glass-border);
+      overflow:hidden;
+      opacity:0; transform:translateY(18px); transition: opacity .7s ease, transform .7s ease;
+    }
+    section.in-view{ opacity:1; transform:translateY(0) }
+
+    .section-head{ display:flex;align-items:center;justify-content:space-between; gap:12px; margin-bottom:12px }
+    .section-title{ font-weight:800; font-size:18px; letter-spacing:0.6px }
+    .section-sub{ color:var(--muted); font-size:13px }
+
+    /* About */
+    .about p{ margin:0; color: #DCE9F8; line-height:1.7; font-size:15px }
+
+    /* Schedule cards / timeline */
+    .schedule{
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .sched-card{
+      display:flex;gap:14px; align-items:center; padding:14px;
+      border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border:1px solid rgba(255,255,255,0.02);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .sched-card:hover{ transform:translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.45) }
+    .sched-badge{
+      min-width:72px;min-height:72px;border-radius:10px;
+      display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,#60A5FA,#6EE7B7);
+      color:#05233B;font-size:14px;
+    }
+    .sched-body{ flex:1 }
+    .sched-title{ font-weight:700; color:#fff; }
+    .sched-desc{ color:var(--muted); font-weight:600; font-size:14px }
+
+    /* Contact */
+    .contacts{ display:flex; gap:12px; flex-wrap:wrap }
+    .contact-btn{
+      display:inline-flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;
+      background:var(--glass); border:1px solid rgba(255,255,255,0.03); color:#D9F6FF;
+      text-decoration:none; font-weight:700; transition: transform .18s, box-shadow .18s;
+    }
+    .contact-btn:hover{ transform:translateY(-6px); box-shadow:0 16px 36px rgba(2,6,23,0.5) }
+
+    .contact-icon{
+      width:36px;height:36px;border-radius:9px;display:grid;place-items:center;
+      background:rgba(255,255,255,0.03); color:#fff; font-weight:800;
+    }
+
+    /* =========================
+       Footer
+       ========================= */
+    footer{ color:var(--muted); font-size:13px; text-align:center; padding:28px 8px; }
+
+    /* =========================
+       Responsive
+       ========================= */
+    @media (max-width:960px){
+      .hero{ grid-template-columns: 1fr; }
+      .hero-right{ order:-1; margin-bottom:12px }
+      .avatar{ width:140px;height:140px }
+    }
+
+    @media (max-width:420px){
+      .name{ font-size:28px }
+      .avatar{ width:120px;height:120px }
+      body{ padding:18px }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#hero">
+        <div class="logo">ZA</div>
+        <div>
+          <div style="font-weight:800">Zuhri Abdussalam</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Mahasiswa · Sistem Informasi</div>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">Tentang</a>
+        <a href="#schedule">Jadwal</a>
+        <a href="#contact">Hubungi</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main id="hero" class="hero">
+      <div class="hero-left">
+        <div class="intro-meta">Halo, saya</div>
+
+        <h1 class="name" aria-label="ZUHRI ABDUSSALAM ASHARI">
+          <span id="typeName" class="typewriter" aria-hidden="true"></span>
+        </h1>
+
+        <div class="subtitle">
+          MAHASISWA SISTEM INFORMASI · UNIVERSITAS KOMPUTAMA MAJENANG
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn--accent" href="#contact">Hubungi Saya</a>
+          <a class="btn" href="#about">Tentang Saya</a>
+        </div>
+
+        <div style="margin-top:18px;color:var(--muted);font-size:13px;">
+          Saya fokus menjembatani kebutuhan operasional dengan solusi perangkat lunak yang andal — dari aplikasi hingga integrasi IoT.
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="profile-card" aria-label="Profil">
+          <div class="avatar" role="img" aria-hidden="false">
+            <!-- GANTI FOTO ANDA: masukkan URL atau path file foto Anda pada atribut src di bawah ini -->
+            <!-- Contoh: <img src="images/me.jpg" alt="Foto Zuhri Abdussalam Ashari"> -->
+            <!-- Letakkan foto Anda di sini: -->
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Foto profil (ganti dengan foto Anda)">
+          </div>
+
+          <div style="text-align:center">
+            <div class="profile-name">ZUHRI ABDUSSALAM ASHARI</div>
+            <div class="profile-role">MAHASISWA SISTEM INFORMASI</div>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:6px">
+            <a class="btn" href="#contact">Email</a>
+            <a class="btn" href="#schedule">Jadwal</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- ABOUT -->
+    <section id="about" class="about" data-animate>
+      <div class="section-head">
+        <div>
+          <div class="section-title">Tentang Saya</div>
+          <div class="section-sub">Sekilas tentang pendekatan & fokus saya</div>
+        </div>
+      </div>
+
+      <p>
+        Sistem Informasi bukan hanya sekadar mempelajari teknologi, tetapi bagaimana teknologi tersebut dapat memecahkan masalah nyata dan menciptakan inovasi yang terukur. Fokus saya adalah menjembatani kebutuhan operasional dengan solusi arsitektur perangkat lunak yang andal, mulai dari pengembangan aplikasi hingga integrasi Internet of Things (IoT) untuk otomasi di berbagai sektor.
+      </p>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule" data-animate>
+      <div class="section-head">
+        <div>
+          <div class="section-title">Jadwal & Rutinitas</div>
+          <div class="section-sub">Ringkasan kegiatan kuliah</div>
+        </div>
+      </div>
+
+      <div class="schedule">
+        <div class="sched-card" role="listitem">
+          <div class="sched-badge">Kuliah</div>
+          <div class="sched-body">
+            <div class="sched-title">Jadwal Kuliah</div>
+            <div class="sched-desc">Selasa - Jumat, Pukul 07:00 - 12:00</div>
+          </div>
+        </div>
+
+        <!-- Anda dapat menambahkan kartu jadwal lain dengan struktur yang sama -->
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-animate>
+      <div class="section-head">
+        <div>
+          <div class="section-title">Hubungi Saya</div>
+          <div class="section-sub">Saya terbuka untuk diskusi, proyek, dan kolaborasi</div>
+        </div>
+      </div>
+
+      <div class="contacts">
+        <!-- Email: mailto -->
+        <a class="contact-btn" href="mailto:tropiterbk1986@gmail.com" aria-label="Kirim email ke tropiterbk1986@gmail.com">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div style="font-weight:800">Email</div>
+            <div style="color:var(--muted);font-size:13px">tropiterbk1986@gmail.com</div>
+          </div>
+        </a>
+
+        <!-- WhatsApp: buka chat langsung -->
+        <!-- Nomor: 083190268537 -> ubah ke format internasional tanpa 0 (contoh: 6283190268537) -->
+        <a class="contact-btn" href="https://wa.me/6283190268537" target="_blank" rel="noopener" aria-label="Chat WhatsApp ke 083190268537">
+          <div class="contact-icon">💬</div>
+          <div>
+            <div style="font-weight:800">WhatsApp</div>
+            <div style="color:var(--muted);font-size:13px">083190268537</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Zuhri Abdussalam Ashari — Dibuat dengan perhatian pada desain & interaksi.
+    </footer>
+  </div>
+
+  <script>
+    // ================
+    // Typewriter effect (name)
+    // ================
+    (function(){
+      const el = document.getElementById('typeName');
+      const text = 'ZUHRI ABDUSSALAM ASHARI';
+      const speed = 60;
+      let idx = 0;
+      let forward = true;
+
+      function type(){
+        // show substring
+        el.textContent = text.slice(0, idx);
+        // increment
+        if(forward){
+          idx++;
+          if(idx > text.length){
+            forward = false;
+            setTimeout(type, 1000); // pause at end
+            return;
+          }
+        } else {
+          idx = 0;
+          forward = true;
+        }
+        setTimeout(type, speed);
+      }
+      type();
+    })();
+
+    // ================
+    // Fade-in on scroll using IntersectionObserver
+    // ================
+    (function(){
+      const opts = { root:null, rootMargin:'0px', threshold: 0.12 };
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) {
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
+        });
+      }, opts);
+
+      document.querySelectorAll('[data-animate]').forEach(el=>{
+        io.observe(el);
+      });
+
+      // Also fade-in hero-left and hero-right for initial view
+      const heroLeft = document.querySelector('.hero-left');
+      const heroRight = document.querySelector('.hero-right');
+      setTimeout(()=>{ heroLeft && heroLeft.classList.add('in-view') }, 120);
+      setTimeout(()=>{ heroRight && heroRight.classList.add('in-view') }, 320);
+    })();
+
+    // ================
+    // Small UI helpers
+    // ================
+    (function(){
+      // set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // smooth offset scrolling (if you want to offset a fixed header, adjust)
+      // Note: html { scroll-behavior: smooth } already applied for native smooth scroll
+      // Add keyboard focus outlines for accessibility
+      document.addEventListener('keyup', (e)=>{
+        if(e.key === 'Tab') document.body.style.outline = 'none';
+      });
+    })();
+  </script>
+</body>
+</html>
