@@ -1,469 +1,479 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Zuhri Abdussalam Ashari — Portofolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Zuhri Abdussalam Ashari - Mahasiswa Sistem Informasi UNIKMA Cilacap, fokus pada IoT, Web Development, dan Agritech.">
+    <title>Zuhri Abdussalam Ashari | Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* =========================
-       Root / Variables
-       ========================= */
-    :root{
-      --bg: #0f1724;
-      --card: #0b1220;
-      --muted: #98A0B3;
-      --accent: linear-gradient(90deg,#6EE7B7,#60A5FA);
-      --glass: rgba(255,255,255,0.03);
-      --glass-2: rgba(255,255,255,0.02);
-      --glass-border: rgba(255,255,255,0.04);
-      --radius: 14px;
-      --max-width: 1100px;
-    }
-
-    /* =========================
-       Global
-       ========================= */
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent),
-                  radial-gradient(900px 500px at 90% 90%, rgba(110,231,183,0.04), transparent),
-                  var(--bg);
-      color:#E6EEF8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      padding:32px 20px;
-      display:flex;
-      justify-content:center;
-    }
-
-    .wrap{
-      width:100%;
-      max-width:var(--max-width);
-    }
-
-    /* =========================
-       Header / Nav
-       ========================= */
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      margin-bottom:28px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .logo{
-      width:44px;height:44px;border-radius:10px;
-      background:linear-gradient(135deg,#60A5FA,#6EE7B7);
-      display:grid;place-items:center;font-weight:700;color:#05233B;
-      box-shadow:0 6px 20px rgba(2,6,23,0.6);
-      flex-shrink:0;
-    }
-
-    nav a{
-      color:var(--muted);
-      text-decoration:none;
-      margin-left:18px;
-      font-weight:600;
-      transition:color .25s, transform .18s;
-    }
-    nav a:hover{ color:#fff; transform:translateY(-2px); }
-
-    /* =========================
-       HERO
-       ========================= */
-    .hero{
-      display:grid;
-      grid-template-columns: 1fr 360px;
-      gap:28px;
-      align-items:center;
-      margin-bottom:48px;
-    }
-
-    .hero-left{
-      padding:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      border-radius:var(--radius);
-      border:1px solid var(--glass-border);
-      box-shadow:0 10px 30px rgba(2,6,23,0.6);
-      overflow:hidden;
-    }
-
-    .intro-meta{
-      color:var(--muted);
-      font-weight:600;
-      letter-spacing:1px;
-      font-size:13px;
-      margin-bottom:12px;
-    }
-
-    .name{
-      font-family:"Space Grotesk", "Inter", sans-serif;
-      font-weight:700;
-      font-size:40px;
-      line-height:1;
-      letter-spacing: -1px;
-      margin:0 0 8px 0;
-      background: linear-gradient(90deg,#fff,#BFE9FF);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      min-height:56px;
-    }
-
-    /* typing caret */
-    .typewriter{
-      display:inline-block;
-      white-space:nowrap;
-      overflow:hidden;
-      border-right:2px solid rgba(255,255,255,0.8);
-      animation: blink 1s step-end infinite;
-    }
-    @keyframes blink{50%{border-color:transparent}}
-
-    .subtitle{
-      color:var(--muted);
-      margin-bottom:18px;
-      font-weight:600;
-    }
-
-    .cta-row{display:flex;gap:12px;align-items:center;margin-top:12px}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      background:linear-gradient(90deg,#1E293B,rgba(255,255,255,0.02));
-      color:#fff;padding:10px 14px;border-radius:10px;border:1px solid var(--glass-border);
-      text-decoration:none;font-weight:700;font-size:14px;cursor:pointer;
-      transition:transform .2s, box-shadow .2s;
-      box-shadow:0 6px 18px rgba(2,6,23,0.45);
-    }
-    .btn:hover{ transform:translateY(-4px); box-shadow:0 18px 30px rgba(2,6,23,0.6); }
-    .btn--accent{
-      background:var(--accent);
-      color:#05233B;
-      border:none;
-    }
-
-    /* hero-right profile */
-    .profile-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      border-radius:18px;padding:18px;border:1px solid var(--glass-border);
-      display:flex;flex-direction:column;gap:14px;align-items:center;
-      transition:transform .28s, box-shadow .28s;
-    }
-    .profile-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(2,6,23,0.6); }
-
-    .avatar{
-      width:160px;height:160px;border-radius:50%;
-      overflow:hidden;border:6px solid rgba(255,255,255,0.04);
-      display:grid;place-items:center;background:linear-gradient(135deg,#0B1220,#09121b);
-      transition:transform .4s;
-    }
-    .avatar img{ width:100%;height:100%;object-fit:cover;display:block }
-    .avatar:hover{ transform:scale(1.04) rotate(-1.2deg); }
-
-    .profile-name{ font-weight:700; letter-spacing:0.6px; color:#fff }
-    .profile-role{ color:var(--muted); font-weight:600; font-size:13px }
-
-    /* =========================
-       Sections (About, Schedule, Contact)
-       ========================= */
-    section{
-      margin-bottom:28px;
-      padding:22px;
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
-      border:1px solid var(--glass-border);
-      overflow:hidden;
-      opacity:0; transform:translateY(18px); transition: opacity .7s ease, transform .7s ease;
-    }
-    section.in-view{ opacity:1; transform:translateY(0) }
-
-    .section-head{ display:flex;align-items:center;justify-content:space-between; gap:12px; margin-bottom:12px }
-    .section-title{ font-weight:800; font-size:18px; letter-spacing:0.6px }
-    .section-sub{ color:var(--muted); font-size:13px }
-
-    /* About */
-    .about p{ margin:0; color: #DCE9F8; line-height:1.7; font-size:15px }
-
-    /* Schedule cards / timeline */
-    .schedule{
-      display:flex;flex-direction:column;gap:12px;
-    }
-    .sched-card{
-      display:flex;gap:14px; align-items:center; padding:14px;
-      border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      border:1px solid rgba(255,255,255,0.02);
-      transition: transform .25s, box-shadow .25s;
-    }
-    .sched-card:hover{ transform:translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.45) }
-    .sched-badge{
-      min-width:72px;min-height:72px;border-radius:10px;
-      display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,#60A5FA,#6EE7B7);
-      color:#05233B;font-size:14px;
-    }
-    .sched-body{ flex:1 }
-    .sched-title{ font-weight:700; color:#fff; }
-    .sched-desc{ color:var(--muted); font-weight:600; font-size:14px }
-
-    /* Contact */
-    .contacts{ display:flex; gap:12px; flex-wrap:wrap }
-    .contact-btn{
-      display:inline-flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;
-      background:var(--glass); border:1px solid rgba(255,255,255,0.03); color:#D9F6FF;
-      text-decoration:none; font-weight:700; transition: transform .18s, box-shadow .18s;
-    }
-    .contact-btn:hover{ transform:translateY(-6px); box-shadow:0 16px 36px rgba(2,6,23,0.5) }
-
-    .contact-icon{
-      width:36px;height:36px;border-radius:9px;display:grid;place-items:center;
-      background:rgba(255,255,255,0.03); color:#fff; font-weight:800;
-    }
-
-    /* =========================
-       Footer
-       ========================= */
-    footer{ color:var(--muted); font-size:13px; text-align:center; padding:28px 8px; }
-
-    /* =========================
-       Responsive
-       ========================= */
-    @media (max-width:960px){
-      .hero{ grid-template-columns: 1fr; }
-      .hero-right{ order:-1; margin-bottom:12px }
-      .avatar{ width:140px;height:140px }
-    }
-
-    @media (max-width:420px){
-      .name{ font-size:28px }
-      .avatar{ width:120px;height:120px }
-      body{ padding:18px }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="#hero">
-        <div class="logo">ZA</div>
-        <div>
-          <div style="font-weight:800">Zuhri Abdussalam</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px">Mahasiswa · Sistem Informasi</div>
-        </div>
-      </a>
-
-      <nav aria-label="Main navigation">
-        <a href="#about">Tentang</a>
-        <a href="#schedule">Jadwal</a>
-        <a href="#contact">Hubungi</a>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <main id="hero" class="hero">
-      <div class="hero-left">
-        <div class="intro-meta">Halo, saya</div>
-
-        <h1 class="name" aria-label="ZUHRI ABDUSSALAM ASHARI">
-          <span id="typeName" class="typewriter" aria-hidden="true"></span>
-        </h1>
-
-        <div class="subtitle">
-          MAHASISWA SISTEM INFORMASI · UNIVERSITAS KOMPUTAMA MAJENANG
-        </div>
-
-        <div class="cta-row">
-          <a class="btn btn--accent" href="#contact">Hubungi Saya</a>
-          <a class="btn" href="#about">Tentang Saya</a>
-        </div>
-
-        <div style="margin-top:18px;color:var(--muted);font-size:13px;">
-          Saya fokus menjembatani kebutuhan operasional dengan solusi perangkat lunak yang andal — dari aplikasi hingga integrasi IoT.
-        </div>
-      </div>
-
-      <<aside class="hero-right">
-        <div class="profile-card" aria-label="Profil">
-          <div class="avatar" role="img" aria-hidden="false">
-            <!-- GANTI FOTO ANDA: masukkan URL atau path file foto Anda pada atribut src di bawah ini -->
-            <!-- Contoh: <img src="images/me.jpg" alt="Foto Zuhri Abdussalam Ashari"> -->
-            <!-- Letakkan foto Anda di sini: -->
-            img src="https://mrbunya9-collab.github.io/portofoliowa/image_45b459.jpg" alt="Foto Zuhri Abdussalam Ashari">
-          </div>
-
-          <div style="text-align:center">
-            <div class="profile-name">ZUHRI ABDUSSALAM ASHARI</div>
-            <div class="profile-role">MAHASISWA SISTEM INFORMASI</div>
-          </div>
-
-          <div style="display:flex;gap:8px;margin-top:6px">
-            <a class="btn" href="#contact">Email</a>
-            <a class="btn" href="#schedule">Jadwal</a>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <!-- ABOUT -->
-    <section id="about" class="about" data-animate>
-      <div class="section-head">
-        <div>
-          <div class="section-title">Tentang Saya</div>
-          <div class="section-sub">Sekilas tentang pendekatan & fokus saya</div>
-        </div>
-      </div>
-
-      <p>
-        Sistem Informasi bukan hanya sekadar mempelajari teknologi, tetapi bagaimana teknologi tersebut dapat memecahkan masalah nyata dan menciptakan inovasi yang terukur. Fokus saya adalah menjembatani kebutuhan operasional dengan solusi arsitektur perangkat lunak yang andal, mulai dari pengembangan aplikasi hingga integrasi Internet of Things (IoT) untuk otomasi di berbagai sektor.
-      </p>
-    </section>
-
-    <!-- SCHEDULE -->
-    <section id="schedule" data-animate>
-      <div class="section-head">
-        <div>
-          <div class="section-title">Jadwal & Rutinitas</div>
-          <div class="section-sub">Ringkasan kegiatan kuliah</div>
-        </div>
-      </div>
-
-      <div class="schedule">
-        <div class="sched-card" role="listitem">
-          <div class="sched-badge">Kuliah</div>
-          <div class="sched-body">
-            <div class="sched-title">Jadwal Kuliah</div>
-            <div class="sched-desc">Selasa - Jumat, Pukul 07:00 - 12:00</div>
-          </div>
-        </div>
-
-        <!-- Anda dapat menambahkan kartu jadwal lain dengan struktur yang sama -->
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" data-animate>
-      <div class="section-head">
-        <div>
-          <div class="section-title">Hubungi Saya</div>
-          <div class="section-sub">Saya terbuka untuk diskusi, proyek, dan kolaborasi</div>
-        </div>
-      </div>
-
-      <div class="contacts">
-        <!-- Email: mailto -->
-        <a class="contact-btn" href="mailto:tropiterbk1986@gmail.com" aria-label="Kirim email ke tropiterbk1986@gmail.com">
-          <div class="contact-icon">✉️</div>
-          <div>
-            <div style="font-weight:800">Email</div>
-            <div style="color:var(--muted);font-size:13px">tropiterbk1986@gmail.com</div>
-          </div>
-        </a>
-
-        <!-- WhatsApp: buka chat langsung -->
-        <!-- Nomor: 083190268537 -> ubah ke format internasional tanpa 0 (contoh: 6283190268537) -->
-        <a class="contact-btn" href="https://wa.me/6283190268537" target="_blank" rel="noopener" aria-label="Chat WhatsApp ke 083190268537">
-          <div class="contact-icon">💬</div>
-          <div>
-            <div style="font-weight:800">WhatsApp</div>
-            <div style="color:var(--muted);font-size:13px">083190268537</div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Zuhri Abdussalam Ashari — Dibuat dengan perhatian pada desain & interaksi.
-    </footer>
-  </div>
-
-  <script>
-    // ================
-    // Typewriter effect (name)
-    // ================
-    (function(){
-      const el = document.getElementById('typeName');
-      const text = 'ZUHRI ABDUSSALAM ASHARI';
-      const speed = 60;
-      let idx = 0;
-      let forward = true;
-
-      function type(){
-        // show substring
-        el.textContent = text.slice(0, idx);
-        // increment
-        if(forward){
-          idx++;
-          if(idx > text.length){
-            forward = false;
-            setTimeout(type, 1000); // pause at end
-            return;
-          }
-        } else {
-          idx = 0;
-          forward = true;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        accent: '#38bdf8', // Sky blue untuk aksen
+                    }
+                }
+            }
         }
-        setTimeout(type, speed);
-      }
-      type();
-    })();
+    </script>
+    
+    <style>
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card {
+            background: rgba(51, 65, 85, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-200 font-sans antialiased selection:bg-accent selection:text-dark-900">
 
-    // ================
-    // Fade-in on scroll using IntersectionObserver
-    // ================
-    (function(){
-      const opts = { root:null, rootMargin:'0px', threshold: 0.12 };
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting) {
-            e.target.classList.add('in-view');
-            io.unobserve(e.target);
-          }
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-accent tracking-tighter">ZAA<span class="text-gray-400">.</span></a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#projects" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#jadwal" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Jadwal</a>
+                        <a href="#contact" class="bg-accent text-dark-900 hover:bg-sky-400 transition-colors px-4 py-2 rounded-md text-sm font-bold">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Projects</a>
+                <a href="#jadwal" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Jadwal</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute top-20 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-20 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -z-10"></div>
+        
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center px-3 py-1 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-6">
+                <span class="flex h-2 w-2 rounded-full bg-accent mr-2 animate-pulse"></span>
+                👋 Open for Collaboration
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-bold text-white mb-4 tracking-tight">
+                Zuhri Abdussalam <span class="text-accent">Ashari</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Mahasiswa Sistem Informasi UNIKMA Cilacap. Aktif di penelitian IoT, pengembangan web, dan kewirausahaan berbasis teknologi. Passionate menciptakan solusi digital yang berdampak nyata.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <a href="#projects" class="px-8 py-3 bg-accent text-dark-900 font-bold rounded-lg hover:bg-sky-400 transition-all transform hover:scale-105">
+                    Lihat Projects
+                </a>
+                <a href="#contact" class="px-8 py-3 glass text-white font-semibold rounded-lg hover:bg-white/10 transition-all border border-gray-700">
+                    Hubungi Saya
+                </a>
+            </div>
+            
+            <!-- Real-time Clock -->
+            <div class="glass inline-block px-6 py-3 rounded-lg border border-gray-700">
+                <p class="text-sm text-gray-400">Waktu Sekarang — WIB</p>
+                <p id="live-clock" class="text-2xl font-mono font-bold text-accent">00:00:00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-2">About Me</h2>
+            <div class="w-20 h-1 bg-accent mb-8"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Siapa Saya?</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Saya adalah mahasiswa Sistem Informasi semester 2 di Universitas Komputama (UNIKMA) Cilacap, dengan fokus pada pengembangan solusi teknologi berbasis IoT dan web development.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Aktif berkontribusi dalam penelitian dan kewirausahaan berbasis teknologi, termasuk proyek <strong class="text-accent">Smart-Maggot IoT</strong> bersama tim Nexta Maggot Farm yang mengintegrasikan sensor ESP32 dengan dashboard web untuk monitoring budidaya BSF. Berkomitmen untuk menciptakan inovasi digital yang memberikan dampak nyata bagi masyarakat, khususnya di bidang agritech dan teknologi tepat guna.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass-card p-4 rounded-xl">
+                        <i class="fas fa-university text-accent text-2xl mb-2"></i>
+                        <h4 class="font-semibold text-white">Universitas</h4>
+                        <p class="text-sm text-gray-400">UNIKMA Cilacap</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <i class="fas fa-graduation-cap text-accent text-2xl mb-2"></i>
+                        <h4 class="font-semibold text-white">Program Studi</h4>
+                        <p class="text-sm text-gray-400">Sistem Informasi — Semester 2</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <i class="fas fa-map-marker-alt text-accent text-2xl mb-2"></i>
+                        <h4 class="font-semibold text-white">Lokasi</h4>
+                        <p class="text-sm text-gray-400">Cilacap, Jawa Tengah</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <i class="fas fa-bullseye text-accent text-2xl mb-2"></i>
+                        <h4 class="font-semibold text-white">Fokus</h4>
+                        <p class="text-sm text-gray-400">IoT · Web Dev · Agritech</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl sm:col-span-2">
+                        <i class="fas fa-check-circle text-green-400 text-2xl mb-2"></i>
+                        <h4 class="font-semibold text-white">Status</h4>
+                        <p class="text-sm text-gray-400">Open for Collaboration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-2">Skills</h2>
+            <p class="text-gray-400 mb-8">Keahlian Saya</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Hardware & IoT -->
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-microchip text-accent mr-3"></i> Hardware & IoT
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">ESP32 / Arduino</span><span class="text-sm text-accent">80%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 80%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Sensor Integration</span><span class="text-sm text-accent">75%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 75%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Circuit Design</span><span class="text-sm text-accent">65%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 65%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-code text-accent mr-3"></i> Web Development
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">HTML / CSS / JS</span><span class="text-sm text-accent">82%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 82%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Laravel / PHP</span><span class="text-sm text-accent">70%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 70%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">React / Next.js</span><span class="text-sm text-accent">60%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 60%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Design -->
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-tools text-accent mr-3"></i> Tools & Design
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Figma</span><span class="text-sm text-accent">75%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 75%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Git / GitHub</span><span class="text-sm text-accent">72%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 72%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">MySQL / PostgreSQL</span><span class="text-sm text-accent">68%</span></div>
+                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 68%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-2">Projects</h2>
+            <p class="text-gray-400 mb-8">Proyek Unggulan</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 rounded">IoT</span>
+                            <span class="px-2 py-1 text-xs font-semibold bg-green-500/20 text-green-400 rounded">ESP32</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Nexta Maggot Farm — Smart BSF IoT</h3>
+                        <p class="text-gray-400 text-sm mb-4">Sistem monitoring budidaya BSF (Black Soldier Fly) berbasis IoT dengan sensor SHT31, DS18B20, MQ-135 dan dashboard web real-time.</p>
+                    </div>
+                    <div class="px-6 pb-6 flex gap-3">
+                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fas fa-arrow-right mr-2"></i> Detail</a>
+                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fab fa-github mr-2"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 text-xs font-semibold bg-purple-500/20 text-purple-400 rounded">Web</span>
+                            <span class="px-2 py-1 text-xs font-semibold bg-yellow-500/20 text-yellow-400 rounded">Laravel</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Portfolio Website</h3>
+                        <p class="text-gray-400 text-sm mb-4">Website portfolio personal dengan dark glassmorphism aesthetic, animasi interaktif, dan jadwal kuliah real-time.</p>
+                    </div>
+                    <div class="px-6 pb-6 flex gap-3">
+                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fas fa-external-link-alt mr-2"></i> Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 text-xs font-semibold bg-red-500/20 text-red-400 rounded">Research</span>
+                            <span class="px-2 py-1 text-xs font-semibold bg-green-500/20 text-green-400 rounded">Agritech</span>
+                            <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 rounded">IoT</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">IAGRI PRO — Modular IoT BSF</h3>
+                        <p class="text-gray-400 text-sm mb-4">Blueprint sistem manajemen BSF modular dengan stack Laravel, Next.js, dan PostgreSQL untuk skala produksi lebih besar.</p>
+                    </div>
+                    <div class="px-6 pb-6 flex gap-3">
+                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fas fa-arrow-right mr-2"></i> Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jadwal Section -->
+    <section id="jadwal" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-2">Jadwal Kuliah</h2>
+            <p class="text-gray-400 mb-8">Jadwal Semester Ini <span class="text-xs bg-accent/20 text-accent px-2 py-1 rounded ml-2">Jadwal aktif semester genap — diperbarui secara berkala</span></p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Senin -->
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Senin <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">3 Matkul</span></h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Algoritma & Pemrograman</p>
+                            <p class="text-gray-400 text-xs">07.30 – 09.10</p>
+                        </li>
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Matematika Diskrit</p>
+                            <p class="text-gray-400 text-xs">09.10 – 10.50</p>
+                        </li>
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Basis Data</p>
+                            <p class="text-gray-400 text-xs">13.00 – 14.40</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Selasa -->
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Selasa <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">2 Matkul</span></h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Sistem Operasi</p>
+                            <p class="text-gray-400 text-xs">07.30 – 09.10</p>
+                        </li>
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Jaringan Komputer</p>
+                            <p class="text-gray-400 text-xs">10.50 – 12.30</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Rabu -->
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Rabu <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">2 Matkul</span></h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">IMK (Human-Computer Interaction)</p>
+                            <p class="text-gray-400 text-xs">09.10 – 10.50</p>
+                        </li>
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Pemrograman Web</p>
+                            <p class="text-gray-400 text-xs">13.00 – 14.40</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kamis -->
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Kamis <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">2 Matkul</span></h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Kewirausahaan Teknologi</p>
+                            <p class="text-gray-400 text-xs">07.30 – 09.10</p>
+                        </li>
+                        <li class="border-l-2 border-accent pl-3">
+                            <p class="text-white font-medium">Statistika & Probabilitas</p>
+                            <p class="text-gray-400 text-xs">10.50 – 12.30</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Mari Berkolaborasi!</h2>
+            <p class="text-gray-400 mb-10 max-w-2xl mx-auto">
+                Tertarik berdiskusi tentang IoT, web development, atau peluang kolaborasi? Jangan ragu untuk menghubungi saya.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="mailto:zuhri@email.com" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
+                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-400">Email</p>
+                        <p class="text-white font-medium">zuhri@email.com</p>
+                    </div>
+                </a>
+
+                <a href="#" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
+                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-400">LinkedIn</p>
+                        <p class="text-white font-medium">Zuhri Abdussalam</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/bunya9-collab" target="_blank" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
+                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-400">GitHub</p>
+                        <p class="text-white font-medium">bunya9-collab</p>
+                    </div>
+                </a>
+
+                <a href="#" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
+                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-400">WhatsApp</p>
+                        <p class="text-white font-medium">Chat Saya</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800 bg-dark-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm">
+                &copy; 2025 - 2026 Zuhri Abdussalam Ashari. Built with <i class="fas fa-heart text-red-500 mx-1"></i> & 
+                <a href="#" class="text-accent hover:underline">GitHub Pages</a>
+            </p>
+            <div class="flex gap-4">
+                <a href="#home" class="text-gray-500 hover:text-accent transition-colors"><i class="fas fa-arrow-up"></i> Kembali ke atas</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Real-time Clock WIB (UTC+7)
+        function updateClock() {
+            const now = new Date();
+            // Konversi ke WIB (UTC+7)
+            const wibTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Jakarta"}));
+            const hours = String(wibTime.getHours()).padStart(2, '0');
+            const minutes = String(wibTime.getMinutes()).padStart(2, '0');
+            const seconds = String(wibTime.getSeconds()).padStart(2, '0');
+            document.getElementById('live-clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Jalankan segera
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
         });
-      }, opts);
 
-      document.querySelectorAll('[data-animate]').forEach(el=>{
-        io.observe(el);
-      });
-
-      // Also fade-in hero-left and hero-right for initial view
-      const heroLeft = document.querySelector('.hero-left');
-      const heroRight = document.querySelector('.hero-right');
-      setTimeout(()=>{ heroLeft && heroLeft.classList.add('in-view') }, 120);
-      setTimeout(()=>{ heroRight && heroRight.classList.add('in-view') }, 320);
-    })();
-
-    // ================
-    // Small UI helpers
-    // ================
-    (function(){
-      // set current year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // smooth offset scrolling (if you want to offset a fixed header, adjust)
-      // Note: html { scroll-behavior: smooth } already applied for native smooth scroll
-      // Add keyboard focus outlines for accessibility
-      document.addEventListener('keyup', (e)=>{
-        if(e.key === 'Tab') document.body.style.outline = 'none';
-      });
-    })();
-  </script>
+        // Close mobile menu when clicking a link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
