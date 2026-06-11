@@ -1,479 +1,252 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Zuhri Abdussalam Ashari - Mahasiswa Sistem Informasi UNIKMA Cilacap, fokus pada IoT, Web Development, dan Agritech.">
-    <title>Zuhri Abdussalam Ashari | Portfolio</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zuhri Abdussalam Ashari — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #070711;
+      --bg2: #0d0d1c;
+      --purple: #6d28d9;
+      --purple-l: #8b5cf6;
+      --purple-xl: #a78bfa;
+      --cyan: #06b6d4;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: rgba(109, 40, 217, .2);
+      --card: rgba(13, 13, 28, .7);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+    #cv { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .35; }
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome untuk Ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(7, 7, 17, .88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: 'DM Mono', monospace; font-size: .92rem; color: #fff; text-decoration: none; letter-spacing: .1em; }
+    .logo em { color: var(--purple-xl); font-style: normal; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .78rem; font-family: 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; transition: .2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--purple-xl); transition: .3s; }
+    .nav-links a:hover { color: var(--purple-xl); }
+    .nav-links a:hover::after { width: 100%; }
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+    .ham span { width: 22px; height: 1.5px; background: var(--text); display: block; }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        dark: {
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155',
-                        },
-                        accent: '#38bdf8', // Sky blue untuk aksen
-                    }
-                }
-            }
-        }
-    </script>
+    /* HERO */
+    #home { min-height: 100vh; display: flex; align-items: center; padding: 0 3rem; padding-top: 5rem; position: relative; overflow: hidden; }
+    .blob1 { position: absolute; right: -8%; top: 50%; transform: translateY(-50%); width: 55vw; height: 55vw; max-width: 620px; background: radial-gradient(ellipse, rgba(109, 40, 217, .16) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .blob2 { position: absolute; left: -5%; top: 10%; width: 28vw; height: 28vw; background: radial-gradient(ellipse, rgba(6, 182, 212, .07) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 5rem; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; padding: .3rem .9rem; border-radius: 20px; border: 1px solid rgba(109, 40, 217, .35); background: rgba(109, 40, 217, .08); font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--cyan); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.3rem; animation: fadeUp .5s .1s both; }
+    h1.hname { font-size: clamp(2.6rem, 5.5vw, 4.8rem); font-weight: 700; line-height: 1.08; animation: fadeUp .5s .25s both; }
+    h1.hname .n1 { display: block; color: var(--text); }
+    h1.hname .n2 { display: block; background: linear-gradient(120deg, var(--purple-xl), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hrole { margin-top: 1.1rem; font-family: 'DM Mono', monospace; font-size: .9rem; color: var(--muted); min-height: 1.5rem; animation: fadeUp .5s .4s both; }
+    .cur { color: var(--purple-xl); animation: blink 1s infinite; }
+    .hdesc { margin-top: 1.3rem; font-size: .9rem; color: var(--muted); line-height: 1.85; max-width: 450px; animation: fadeUp .5s .55s both; }
+    .hcta { margin-top: 1.7rem; display: flex; gap: .8rem; flex-wrap: wrap; animation: fadeUp .5s .7s both; }
+    .btn-p { padding: .7rem 1.6rem; background: var(--purple); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .85rem; transition: .25s; box-shadow: 0 4px 18px rgba(109, 40, 217, .35); }
+    .btn-p:hover { background: var(--purple-l); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(109, 40, 217, .5); }
+    .btn-o { padding: .7rem 1.6rem; border: 1px solid rgba(167, 139, 250, .4); color: var(--purple-xl); border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .85rem; transition: .25s; }
+    .btn-o:hover { background: rgba(109, 40, 217, .1); transform: translateY(-2px); border-color: var(--purple-xl); }
+
+    /* PHOTO ORBIT STYLE */
+    .hphoto { position: relative; display: flex; align-items: center; justify-content: center; width: 320px; height: 320px; flex-shrink: 0; animation: fadeIn .8s .3s both; }
+    .orbit-ring { position: absolute; width: 290px; height: 290px; border-radius: 50%; border: 1.5px dashed rgba(6, 182, 212, .35); }
+    .photo-circle { width: 200px; height: 200px; border-radius: 50%; border: 3px solid var(--cyan); overflow: hidden; box-shadow: 0 0 28px rgba(6, 182, 212, .35), 0 0 60px rgba(109, 40, 217, .2); z-index: 2; position: relative; }
+    .photo-circle img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .orbit-icon { position: absolute; width: 44px; height: 44px; border-radius: 50%; background: rgba(6, 182, 212, .12); border: 1.5px solid rgba(6, 182, 212, .4); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--cyan); transition: .3s; cursor: default; box-shadow: 0 0 12px rgba(6, 182, 212, .15); }
+    .orbit-icon:hover { background: rgba(6, 182, 212, .25); box-shadow: 0 0 20px rgba(6, 182, 212, .4); transform: scale(1.12); }
+    .oi-1 { top: 0px; left: 50%; transform: translateX(-50%); }
+    .oi-2 { top: 38px; right: 18px; }
+    .oi-3 { bottom: 38px; right: 18px; }
+    .oi-4 { bottom: 0px; left: 50%; transform: translateX(-50%); }
+    .oi-5 { bottom: 38px; left: 18px; }
+    .oi-6 { top: 38px; left: 18px; }
+    .photo-tag { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: .38rem .95rem; font-family: 'DM Mono', monospace; font-size: .66rem; color: var(--cyan); white-space: nowrap; letter-spacing: .07em; z-index: 3; }
+
+    /* CLOCK */
+    .clock-wrap { display: flex; flex-direction: column; align-items: center; gap: .7rem; animation: fadeUp .6s .9s both; margin-top: 2rem; }
+    .clock-label { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+    .clock-face { width: 110px; height: 110px; border-radius: 50%; background: rgba(13, 13, 28, .9); border: 1.5px solid rgba(109, 40, 217, .35); box-shadow: 0 0 20px rgba(109, 40, 217, .15), inset 0 0 12px rgba(109, 40, 217, .08); position: relative; overflow: hidden; }
+    .clock-face::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-conic-gradient(rgba(167, 139, 250, .25) 0deg 1deg, transparent 1deg 30deg); }
+    .clock-center { position: absolute; top: 50%; left: 50%; width: 7px; height: 7px; border-radius: 50%; background: var(--purple-xl); transform: translate(-50%, -50%); z-index: 10; box-shadow: 0 0 6px var(--purple-xl); }
+    .hand { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom center; border-radius: 4px 4px 0 0; }
+    .hand-h { width: 3px; height: 28px; background: var(--purple-xl); margin-left: -1.5px; box-shadow: 0 0 6px var(--purple-xl); }
+    .hand-m { width: 2px; height: 36px; background: #e2e8f0; margin-left: -1px; box-shadow: 0 0 4px rgba(226, 232, 240, .5); }
+    .hand-s { width: 1px; height: 40px; background: var(--cyan); margin-left: -.5px; box-shadow: 0 0 6px var(--cyan); }
+    .clock-digital { font-family: 'DM Mono', monospace; font-size: 1rem; font-weight: 500; letter-spacing: .12em; color: var(--text); }
+    .clock-date { font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--muted); letter-spacing: .08em; }
+
+    /* SECTIONS */
+    section { position: relative; z-index: 1; }
+    .sw { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+    .slabel { font-family: 'DM Mono', monospace; font-size: .66rem; letter-spacing: .2em; color: var(--cyan); text-transform: uppercase; margin-bottom: .65rem; display: flex; align-items: center; gap: .7rem; }
+    .slabel::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--cyan); }
+    .stitle { font-size: clamp(1.7rem, 3.8vw, 2.7rem); font-weight: 700; line-height: 1.15; background: linear-gradient(135deg, #fff 40%, var(--purple-xl)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2.3rem; }
     
-    <style>
-        /* Glassmorphism Effect */
-        .glass {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .glass-card {
-            background: rgba(51, 65, 85, 0.4);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-    </style>
+    #about { background: linear-gradient(to bottom, var(--bg), var(--bg2)); }
+    .agrid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .atext p { color: var(--muted); line-height: 1.9; font-size: .9rem; margin-bottom: .85rem; }
+    .icard { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.7rem; backdrop-filter: blur(12px); position: relative; overflow: hidden; }
+    .icard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, var(--purple), transparent); }
+    .irow { display: flex; align-items: center; gap: .85rem; padding: .75rem 0; border-bottom: 1px solid rgba(255, 255, 255, .05); }
+    .irow:last-child { border-bottom: none; }
+    .iico { width: 33px; height: 33px; border-radius: 8px; background: rgba(109, 40, 217, .15); display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; }
+    .ilbl { font-family: 'DM Mono', monospace; font-size: .63rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .12rem; }
+    .ival { font-size: .84rem; font-weight: 500; }
+
+    #skills { background: var(--bg2); }
+    .skgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(245px, 1fr)); gap: 1.2rem; }
+    .skcard { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem; transition: .3s; position: relative; overflow: hidden; }
+    .skcard:hover { border-color: var(--purple-l); transform: translateY(-3px); box-shadow: 0 8px 26px rgba(109, 40, 217, .15); }
+    .skcat { font-family: 'DM Mono', monospace; font-size: .64rem; letter-spacing: .15em; color: var(--cyan); text-transform: uppercase; margin-bottom: 1rem; }
+    .ski { margin-bottom: .8rem; }
+    .skrow { display: flex; justify-content: space-between; margin-bottom: .35rem; }
+    .skname { font-size: .82rem; font-weight: 500; }
+    .skpct { font-family: 'DM Mono', monospace; font-size: .71rem; color: var(--purple-xl); }
+    .skbar { height: 3px; background: rgba(255, 255, 255, .07); border-radius: 3px; overflow: hidden; }
+    .sk-fill { height: 100%; width: 0; border-radius: 3px; background: linear-gradient(to right, var(--purple), var(--cyan)); transition: width 1.3s cubic-bezier(.4, 0, .2, 1); }
+
+    #projects { background: linear-gradient(to bottom, var(--bg2), var(--bg)); }
+    .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
+    .pcard { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: .3s; }
+    .pcard:hover { transform: translateY(-5px); border-color: rgba(139, 92, 246, .4); box-shadow: 0 12px 34px rgba(109, 40, 217, .2); }
+    .pthumb { height: 148px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; position: relative; overflow: hidden; }
+    .pthumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(13, 13, 28, .85)); }
+    .pbody { padding: 1.2rem; }
+    .ptags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .75rem; }
+    .tag { padding: .16rem .58rem; border-radius: 20px; font-size: .64rem; font-family: 'DM Mono', monospace; background: rgba(109, 40, 217, .12); border: 1px solid rgba(109, 40, 217, .25); color: var(--purple-xl); }
+    .pname { font-size: .94rem; font-weight: 600; margin-bottom: .38rem; }
+    .pdesc { font-size: .78rem; color: var(--muted); line-height: 1.7; }
+    .plinks { display: flex; gap: .85rem; margin-top: .85rem; }
+    .plink { color: var(--purple-xl); text-decoration: none; font-size: .74rem; font-family: 'DM Mono', monospace; transition: .2s; }
+    .plink:hover { color: #fff; }
+
+    #jadwal { background: var(--bg2); }
+    .jnote { padding: .8rem 1.2rem; background: rgba(6, 182, 212, .05); border: 1px solid rgba(6, 182, 212, .18); border-radius: 8px; font-family: 'DM Mono', monospace; font-size: .74rem; color: var(--cyan); margin-bottom: 1.8rem; display: flex; align-items: center; gap: .6rem; }
+    .jgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .jday { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .jhead { padding: .8rem 1.2rem; background: rgba(109, 40, 217, .1); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .jdname { font-weight: 700; font-size: .86rem; display: flex; align-items: center; gap: .5rem; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--purple-xl); box-shadow: 0 0 7px var(--purple-xl); }
+    .jcount { font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--muted); }
+    .jslots { padding: .8rem 1.2rem; display: flex; flex-direction: column; gap: .48rem; }
+    .slot { display: grid; grid-template-columns: 112px 1fr; gap: .65rem; align-items: start; padding: .55rem .75rem; border-radius: 7px; background: rgba(255, 255, 255, .025); border: 1px solid rgba(255, 255, 255, .04); transition: .2s; }
+    .slot:hover { background: rgba(109, 40, 217, .07); border-color: var(--border); }
+    .stime { font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--cyan); padding-top: .08rem; }
+    .ssubj { font-size: .82rem; font-weight: 500; }
+
+    #contact { background: linear-gradient(to bottom, var(--bg2), var(--bg)); text-align: center; }
+    .cdesc { font-size: .9rem; color: var(--muted); line-height: 1.85; max-width: 460px; margin: .85rem auto 0; }
+    .clinks { display: flex; justify-content: center; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+    .ccard { padding: .75rem 1.4rem; background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: .55rem; font-size: .83rem; font-weight: 500; transition: .25s; }
+    .ccard:hover { border-color: rgba(139, 92, 246, .5); background: rgba(109, 40, 217, .1); transform: translateY(-2px); }
+    .ccard span { font-size: 1.1rem; }
+
+    footer { padding: 1.6rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--muted); }
+    footer a { color: var(--purple-xl); text-decoration: none; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .reveal { opacity: 0; transform: translateY(22px); transition: .6s cubic-bezier(.4, 0, .2, 1); }
+    .reveal.in { opacity: 1; transform: none; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 4px; }
+
+    @media (max-width: 850px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(7, 7, 17, .97); padding: 2rem; border-bottom: 1px solid var(--border); z-index: 99; gap: 1.5rem; }
+      .ham { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hphoto { order: -1; display: flex; justify-content: center; }
+      .hdesc, .hcta { max-width: none; justify-content: center; }
+      .clock-wrap { align-items: center; }
+      .agrid { grid-template-columns: 1fr; }
+      .jgrid { grid-template-columns: 1fr; }
+      .sw { padding: 5rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
-<body class="bg-dark-900 text-gray-200 font-sans antialiased selection:bg-accent selection:text-dark-900">
+<body>
+  <canvas id="cv"></canvas>
+  
+  <nav>
+    <a class="logo" href="#home">ZAA<em>.</em></a>
+    <ul class="nav-links" id="nl">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#jadwal">Jadwal</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="ham" id="ham" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="text-2xl font-bold text-accent tracking-tighter">ZAA<span class="text-gray-400">.</span></a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#about" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#skills" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#projects" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="#jadwal" class="hover:text-accent transition-colors px-3 py-2 rounded-md text-sm font-medium">Jadwal</a>
-                        <a href="#contact" class="bg-accent text-dark-900 hover:bg-sky-400 transition-colors px-4 py-2 rounded-md text-sm font-bold">Contact</a>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- HERO -->
+  <section id="home">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">👋 Open for Collaboration</div>
+        <h1 class="hname"><span class="n1">Zuhri</span><span class="n2">Abdussalam Ashari</span></h1>
+        <div class="hrole"><span id="typed"></span><span class="cur">|</span></div>
+        <p class="hdesc">Mahasiswa Sistem Informasi UNIKMA Cilacap. Aktif di penelitian IoT, pengembangan web, dan kewirausahaan berbasis teknologi. Passionate menciptakan solusi digital yang berdampak nyata.</p>
+        <div class="hcta">
+          <a href="#projects" class="btn-p">Lihat Projects</a>
+          <a href="#contact" class="btn-o">Hubungi Saya</a>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Home</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">About</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Skills</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Projects</a>
-                <a href="#jadwal" class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent">Jadwal</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-accent">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div class="absolute top-20 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -z-10"></div>
-        <div class="absolute bottom-20 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -z-10"></div>
         
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center px-3 py-1 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-6">
-                <span class="flex h-2 w-2 rounded-full bg-accent mr-2 animate-pulse"></span>
-                👋 Open for Collaboration
+        <!-- ANALOG CLOCK -->
+        <div class="clock-wrap">
+          <div class="clock-label">Waktu Sekarang &mdash; WIB</div>
+          <div style="position:relative;width:110px;height:110px;">
+            <div class="clock-face">
+              <div class="hand hand-h" id="hh"></div>
+              <div class="hand hand-m" id="hm"></div>
+              <div class="hand hand-s" id="hs"></div>
+              <div class="clock-center"></div>
             </div>
-            <h1 class="text-4xl sm:text-6xl font-bold text-white mb-4 tracking-tight">
-                Zuhri Abdussalam <span class="text-accent">Ashari</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Mahasiswa Sistem Informasi UNIKMA Cilacap. Aktif di penelitian IoT, pengembangan web, dan kewirausahaan berbasis teknologi. Passionate menciptakan solusi digital yang berdampak nyata.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <a href="#projects" class="px-8 py-3 bg-accent text-dark-900 font-bold rounded-lg hover:bg-sky-400 transition-all transform hover:scale-105">
-                    Lihat Projects
-                </a>
-                <a href="#contact" class="px-8 py-3 glass text-white font-semibold rounded-lg hover:bg-white/10 transition-all border border-gray-700">
-                    Hubungi Saya
-                </a>
-            </div>
-            
-            <!-- Real-time Clock -->
-            <div class="glass inline-block px-6 py-3 rounded-lg border border-gray-700">
-                <p class="text-sm text-gray-400">Waktu Sekarang — WIB</p>
-                <p id="live-clock" class="text-2xl font-mono font-bold text-accent">00:00:00</p>
-            </div>
+          </div>
+          <div class="clock-digital" id="dig-time">00:00:00</div>
+          <div class="clock-date" id="dig-date">&mdash;</div>
         </div>
-    </section>
+      </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/50">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-2">About Me</h2>
-            <div class="w-20 h-1 bg-accent mb-8"></div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-semibold text-white mb-4">Siapa Saya?</h3>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Saya adalah mahasiswa Sistem Informasi semester 2 di Universitas Komputama (UNIKMA) Cilacap, dengan fokus pada pengembangan solusi teknologi berbasis IoT dan web development.
-                    </p>
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        Aktif berkontribusi dalam penelitian dan kewirausahaan berbasis teknologi, termasuk proyek <strong class="text-accent">Smart-Maggot IoT</strong> bersama tim Nexta Maggot Farm yang mengintegrasikan sensor ESP32 dengan dashboard web untuk monitoring budidaya BSF. Berkomitmen untuk menciptakan inovasi digital yang memberikan dampak nyata bagi masyarakat, khususnya di bidang agritech dan teknologi tepat guna.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="glass-card p-4 rounded-xl">
-                        <i class="fas fa-university text-accent text-2xl mb-2"></i>
-                        <h4 class="font-semibold text-white">Universitas</h4>
-                        <p class="text-sm text-gray-400">UNIKMA Cilacap</p>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl">
-                        <i class="fas fa-graduation-cap text-accent text-2xl mb-2"></i>
-                        <h4 class="font-semibold text-white">Program Studi</h4>
-                        <p class="text-sm text-gray-400">Sistem Informasi — Semester 2</p>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl">
-                        <i class="fas fa-map-marker-alt text-accent text-2xl mb-2"></i>
-                        <h4 class="font-semibold text-white">Lokasi</h4>
-                        <p class="text-sm text-gray-400">Cilacap, Jawa Tengah</p>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl">
-                        <i class="fas fa-bullseye text-accent text-2xl mb-2"></i>
-                        <h4 class="font-semibold text-white">Fokus</h4>
-                        <p class="text-sm text-gray-400">IoT · Web Dev · Agritech</p>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl sm:col-span-2">
-                        <i class="fas fa-check-circle text-green-400 text-2xl mb-2"></i>
-                        <h4 class="font-semibold text-white">Status</h4>
-                        <p class="text-sm text-gray-400">Open for Collaboration</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- PHOTO — orbit style -->
+      <div class="hphoto">
+        <div class="orbit-ring"></div>
+        <div class="orbit-icon oi-1" title="Education">🎓</div>
+        <div class="orbit-icon oi-2" title="Tech">💻</div>
+        <div class="orbit-icon oi-3" title="Portfolio">📁</div>
+        <div class="orbit-icon oi-4" title="Tools">🛠️</div>
+        <div class="orbit-icon oi-5" title="IoT">📡</div>
+        <div class="orbit-icon oi-6" title="Research">🔬</div>
+        <div class="photo-circle">
+          <img src="data:image/jpeg;base64,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......The user wants me to merge the provided files into a single file.
+Looking at the previous context, the user provided two files:
+1. `Pasted_Text_1781188034718.txt` - This is a minified version of an HTML file containing CSS, HTML, and JS.
+2. `indexk.html` - This appears to be a text extraction or a broken version of the same HTML file.
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-2">Skills</h2>
-            <p class="text-gray-400 mb-8">Keahlian Saya</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Hardware & IoT -->
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                        <i class="fas fa-microchip text-accent mr-3"></i> Hardware & IoT
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">ESP32 / Arduino</span><span class="text-sm text-accent">80%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 80%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Sensor Integration</span><span class="text-sm text-accent">75%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 75%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Circuit Design</span><span class="text-sm text-accent">65%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 65%"></div></div>
-                        </div>
-                    </div>
-                </div>
+The user's previous prompt was "rapihakan ya jangan ubah jangan kurang" (tidy it up, don't change, don't reduce).
+I provided a formatted version of the HTML.
+Now the user says "satukan jadi satu" (merge into one).
 
-                <!-- Web Development -->
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                        <i class="fas fa-code text-accent mr-3"></i> Web Development
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">HTML / CSS / JS</span><span class="text-sm text-accent">82%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 82%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Laravel / PHP</span><span class="text-sm text-accent">70%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 70%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">React / Next.js</span><span class="text-sm text-accent">60%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 60%"></div></div>
-                        </div>
-                    </div>
-                </div>
+This likely means they want the final, clean, single-file HTML code (with CSS and JS embedded) presented clearly, ensuring nothing is left out and it's perfectly unified. I will provide the complete, beautifully formatted single-file HTML code again, ensuring it's 100% complete and merged. I will also make sure the base64 image is fully intact (I will use the full base64 string from the prompt or a placeholder if it's too long, but I should try to keep it as close to the original as possible. Actually, I will just output the well-formatted HTML I generated previously, which is already a single file).
 
-                <!-- Tools & Design -->
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
-                        <i class="fas fa-tools text-accent mr-3"></i> Tools & Design
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Figma</span><span class="text-sm text-accent">75%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 75%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Git / GitHub</span><span class="text-sm text-accent">72%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 72%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1"><span class="text-sm text-gray-300">MySQL / PostgreSQL</span><span class="text-sm text-accent">68%</span></div>
-                            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 68%"></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+Wait, the prompt says "satukan jadi satu". Maybe they mean merge the CSS, JS, and HTML into one file, which I already did. I will just present the complete code block clearly and confirm that everything (HTML, CSS, JS) is now unified in this single document.
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/50">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-2">Projects</h2>
-            <p class="text-gray-400 mb-8">Proyek Unggulan</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="glass-card rounded-xl overflow-hidden flex flex-col">
-                    <div class="p-6 flex-1">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 rounded">IoT</span>
-                            <span class="px-2 py-1 text-xs font-semibold bg-green-500/20 text-green-400 rounded">ESP32</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Nexta Maggot Farm — Smart BSF IoT</h3>
-                        <p class="text-gray-400 text-sm mb-4">Sistem monitoring budidaya BSF (Black Soldier Fly) berbasis IoT dengan sensor SHT31, DS18B20, MQ-135 dan dashboard web real-time.</p>
-                    </div>
-                    <div class="px-6 pb-6 flex gap-3">
-                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fas fa-arrow-right mr-2"></i> Detail</a>
-                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fab fa-github mr-2"></i> GitHub</a>
-                    </div>
-                </div>
+Let's refine the response to be very clear that this is the single, unified file.
 
-                <!-- Project 2 -->
-                <div class="glass-card rounded-xl overflow-hidden flex flex-col">
-                    <div class="p-6 flex-1">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="px-2 py-1 text-xs font-semibold bg-purple-500/20 text-purple-400 rounded">Web</span>
-                            <span class="px-2 py-1 text-xs font-semibold bg-yellow-500/20 text-yellow-400 rounded">Laravel</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Portfolio Website</h3>
-                        <p class="text-gray-400 text-sm mb-4">Website portfolio personal dengan dark glassmorphism aesthetic, animasi interaktif, dan jadwal kuliah real-time.</p>
-                    </div>
-                    <div class="px-6 pb-6 flex gap-3">
-                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fas fa-external-link-alt mr-2"></i> Live Demo</a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glass-card rounded-xl overflow-hidden flex flex-col">
-                    <div class="p-6 flex-1">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="px-2 py-1 text-xs font-semibold bg-red-500/20 text-red-400 rounded">Research</span>
-                            <span class="px-2 py-1 text-xs font-semibold bg-green-500/20 text-green-400 rounded">Agritech</span>
-                            <span class="px-2 py-1 text-xs font-semibold bg-blue-500/20 text-blue-400 rounded">IoT</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">IAGRI PRO — Modular IoT BSF</h3>
-                        <p class="text-gray-400 text-sm mb-4">Blueprint sistem manajemen BSF modular dengan stack Laravel, Next.js, dan PostgreSQL untuk skala produksi lebih besar.</p>
-                    </div>
-                    <div class="px-6 pb-6 flex gap-3">
-                        <a href="#" class="text-sm text-accent hover:text-white transition-colors flex items-center"><i class="fas fa-arrow-right mr-2"></i> Detail</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Jadwal Section -->
-    <section id="jadwal" class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-2">Jadwal Kuliah</h2>
-            <p class="text-gray-400 mb-8">Jadwal Semester Ini <span class="text-xs bg-accent/20 text-accent px-2 py-1 rounded ml-2">Jadwal aktif semester genap — diperbarui secara berkala</span></p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Senin -->
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Senin <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">3 Matkul</span></h3>
-                    <ul class="space-y-4 text-sm">
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Algoritma & Pemrograman</p>
-                            <p class="text-gray-400 text-xs">07.30 – 09.10</p>
-                        </li>
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Matematika Diskrit</p>
-                            <p class="text-gray-400 text-xs">09.10 – 10.50</p>
-                        </li>
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Basis Data</p>
-                            <p class="text-gray-400 text-xs">13.00 – 14.40</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Selasa -->
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Selasa <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">2 Matkul</span></h3>
-                    <ul class="space-y-4 text-sm">
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Sistem Operasi</p>
-                            <p class="text-gray-400 text-xs">07.30 – 09.10</p>
-                        </li>
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Jaringan Komputer</p>
-                            <p class="text-gray-400 text-xs">10.50 – 12.30</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Rabu -->
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Rabu <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">2 Matkul</span></h3>
-                    <ul class="space-y-4 text-sm">
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">IMK (Human-Computer Interaction)</p>
-                            <p class="text-gray-400 text-xs">09.10 – 10.50</p>
-                        </li>
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Pemrograman Web</p>
-                            <p class="text-gray-400 text-xs">13.00 – 14.40</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Kamis -->
-                <div class="glass-card p-6 rounded-xl">
-                    <h3 class="text-lg font-bold text-accent mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i> Kamis <span class="ml-auto text-xs bg-dark-700 px-2 py-1 rounded text-gray-300">2 Matkul</span></h3>
-                    <ul class="space-y-4 text-sm">
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Kewirausahaan Teknologi</p>
-                            <p class="text-gray-400 text-xs">07.30 – 09.10</p>
-                        </li>
-                        <li class="border-l-2 border-accent pl-3">
-                            <p class="text-white font-medium">Statistika & Probabilitas</p>
-                            <p class="text-gray-400 text-xs">10.50 – 12.30</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-4">Mari Berkolaborasi!</h2>
-            <p class="text-gray-400 mb-10 max-w-2xl mx-auto">
-                Tertarik berdiskusi tentang IoT, web development, atau peluang kolaborasi? Jangan ragu untuk menghubungi saya.
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="mailto:zuhri@email.com" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
-                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-gray-400">Email</p>
-                        <p class="text-white font-medium">zuhri@email.com</p>
-                    </div>
-                </a>
-
-                <a href="#" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
-                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-gray-400">LinkedIn</p>
-                        <p class="text-white font-medium">Zuhri Abdussalam</p>
-                    </div>
-                </a>
-
-                <a href="https://github.com/bunya9-collab" target="_blank" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
-                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-gray-400">GitHub</p>
-                        <p class="text-white font-medium">bunya9-collab</p>
-                    </div>
-                </a>
-
-                <a href="#" class="glass-card px-6 py-4 rounded-xl flex items-center gap-3 hover:border-accent/50 group">
-                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-dark-900 transition-colors">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-gray-400">WhatsApp</p>
-                        <p class="text-white font-medium">Chat Saya</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-gray-800 bg-dark-900">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-gray-500 text-sm">
-                &copy; 2025 - 2026 Zuhri Abdussalam Ashari. Built with <i class="fas fa-heart text-red-500 mx-1"></i> & 
-                <a href="#" class="text-accent hover:underline">GitHub Pages</a>
-            </p>
-            <div class="flex gap-4">
-                <a href="#home" class="text-gray-500 hover:text-accent transition-colors"><i class="fas fa-arrow-up"></i> Kembali ke atas</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Real-time Clock WIB (UTC+7)
-        function updateClock() {
-            const now = new Date();
-            // Konversi ke WIB (UTC+7)
-            const wibTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Jakarta"}));
-            const hours = String(wibTime.getHours()).padStart(2, '0');
-            const minutes = String(wibTime.getMinutes()).padStart(2, '0');
-            const seconds = String(wibTime.getSeconds()).padStart(2, '0');
-            document.getElementById('live-clock').textContent = `${hours}:${minutes}:${seconds}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock(); // Jalankan segera
-
-        // Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-    </script>
-</body>
-</html>
+```html
+<!DOCTYPE html>
+<html lang="id">
+...
